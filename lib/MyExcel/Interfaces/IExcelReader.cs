@@ -9,12 +9,16 @@ namespace MyExcel
     public interface IExcelReader
     {
        
-        void SetFileLocation(string path);
+        string FileLocation { get; set; }
 
         string this[int row, int column] { get; }
 
         Task<IEnumerable<string>> GetColumnAsync(int column, int startingRow = 1);
 
         Task<IEnumerable<string>> GetRowAsync(int row, int startingColumn = 1);
+
+        IEnumerable<string> GetColumn(int column, int startingRow = 1);
+
+        IEnumerable<string> GetRow(int row, int startingColumn = 1);
     }
 }

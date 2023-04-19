@@ -1,6 +1,4 @@
-﻿using Microsoft.Office.Interop.Excel;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace MyExcel
@@ -10,26 +8,38 @@ namespace MyExcel
     /// </summary>
     public class ExcelReader : Excel, IExcelReader
     {
+        private string _fileLocation = null;
+
         public string this[int row, int column]
         {
             get
             {
-                string value;
-                try
+                ThrowExceptionIfFileLocationNotSet();
+
+                return ((dynamic)_sheet.Cells[row, column]).Value.ToString();
+            }
+        }
+
+        public string FileLocation
+        {
+            get { return _fileLocation; }
+            set
+            {
+                if (_app != null)
                 {
-                    value = ((dynamic)_sheet.Cells[row, column]).Value.ToString();
-                
+                    _app.Workbooks.Close();
                 }
-                catch (Exception)
-                {
-                    value = string.Empty;
-                }
-                return value;
+
+                _fileLocation = value;
+                var wb = _app.Workbooks.Open(_fileLocation);
+                _sheet = (Microsoft.Office.Interop.Excel.Worksheet)wb.Worksheets[1];
             }
         }
 
         public async Task<IEnumerable<string>> GetColumnAsync(int column, int startingRow = 1)
         {
+            ThrowExceptionIfFileLocationNotSet();
+
             return await Task.Run(() =>
             {
                 List<string> values = new List<string>();
@@ -41,8 +51,22 @@ namespace MyExcel
             });
         }
 
+        public IEnumerable<string> GetColumn(int column, int startingRow = 1)
+        {
+            ThrowExceptionIfFileLocationNotSet();
+
+            List<string> values = new List<string>();
+            for (int row = startingRow; this[row, column] != string.Empty; row++)
+            {
+                values.Add(((dynamic)_sheet.Cells[row, column]).Value.ToString());
+            }
+            return values;
+        }
+
         public async Task<IEnumerable<string>> GetRowAsync(int row, int startingColumn = 1)
         {
+            ThrowExceptionIfFileLocationNotSet();
+
             return await Task.Run(() =>
             {
                 List<string> values = new List<string>();
@@ -54,14 +78,24 @@ namespace MyExcel
             });
         }
 
-        public void SetFileLocation(string path)
+        public IEnumerable<string> GetRow(int row, int startingColumn = 1)
         {
-            if (_app != null)
+            ThrowExceptionIfFileLocationNotSet();
+
+            List<string> values = new List<string>();
+            for (int column = startingColumn; this[row, column] != string.Empty; column++)
             {
-                _app.Workbooks.Close();
+                values.Add(((dynamic)_sheet.Cells[row, column]).Value.ToString());
             }
-            var wb = _app.Workbooks.Open(path);
-            _sheet = (Worksheet)wb.Worksheets[1];
+            return values;
         }
+
+        private void ThrowExceptionIfFileLocationNotSet()
+        {
+            if (string.IsNullOrEmpty(_fileLocation)) throw new FileLocationNotSetException();
+        }
+
     }
+
+
 }
