@@ -2,9 +2,9 @@
 
 namespace MyExcel
 {
-    //
-    // Summary:
-    //     Write Excel files.
+    /// <summary>
+    /// Write Excel files.
+    /// </summary>
     public interface IExcelWriter : IExcel
     {
         string this[int row, int column] { set; }

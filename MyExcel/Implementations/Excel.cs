@@ -3,9 +3,9 @@
 namespace MyExcel
 {
 
-    //
-    // Summary:
-    //     The base class for excel readers and writers.
+    /// <summary>
+    /// The base class for excel readers and writers.
+    /// </summary>    
     public abstract class Excel : IExcel
     {
         protected Application _app;

@@ -3,11 +3,12 @@ using System.Threading.Tasks;
 
 namespace MyExcel
 {
-    //
-    // Summary:
-    //     Read Excel files.
+    /// <summary>
+    /// Read excel files.
+    /// </summary>
     public interface IExcelReader
     {
+       
         void SetFileLocation(string path);
 
         string this[int row, int column] { get; }

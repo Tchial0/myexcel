@@ -4,9 +4,9 @@ using System.Text;
 
 namespace MyExcel
 {
-    //
-    // Summary:
-    //     Base interface for excel readers and writers.
+    /// <summary>
+    /// Base interface for Excel reader and writers.
+    /// </summary>
     public interface IExcel : IDisposable
     {
 
