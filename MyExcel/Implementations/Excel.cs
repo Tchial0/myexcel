@@ -1,6 +1,6 @@
 ﻿using Microsoft.Office.Interop.Excel;
 
-namespace MyExcel.Implementations
+namespace MyExcel
 {
 
     //
