@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MyExcel</name>
+    </assembly>
+    <members>
+        <member name="T:MyExcel.FileLocationNotSetException">
+            <summary>
+            Exception thrown when trying to access an inexistent file.
+            </summary>
+        </member>
+        <member name="M:MyExcel.FileLocationNotSetException.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MyExcel.Excel">
+            <summary>
+            The base class for excel readers and writers.
+            </summary>    
+        </member>
+        <member name="M:MyExcel.Excel.Dispose">
+            <summary>
+            Releases all the resources used by the excel application.
+            </summary>
+        </member>
+        <member name="T:MyExcel.ExcelReader">
+            <summary>
+            Excel file reader.
+            </summary>
+        </member>
+        <member name="P:MyExcel.ExcelReader.Item(System.Int32,System.Int32)">
+            <summary>
+            Read a cell value (no 0-based index).
+            Throws an exception if the file location was not set.
+            </summary>
+            <param name="row">Index of the row in the spreadsheet</param>
+            <param name="column">Index of the column in the apreadsheet</param>
+            <returns>The value of the cell from the spreadsheet.</returns>
+        </member>
+        <member name="P:MyExcel.ExcelReader.FileLocation">
+            <summary>
+            Get/set the location of the excel file to be read.
+            </summary>
+        </member>
+        <member name="M:MyExcel.ExcelReader.GetColumnAsync(System.Int32,System.Int32)">
+            <summary>
+            Get an enumerator of strings asynchronously representing a vertical selection from the spreadsheet.
+            </summary>
+            <param name="column">Index (no 0-based) of the column in the spreadsheet</param>
+            <param name="startingRow">The row from which to start (default is 1).</param>
+            <returns>The enumerator of strings representing the selection.</returns>
+        </member>
+        <member name="M:MyExcel.ExcelReader.GetColumn(System.Int32,System.Int32)">
+            <summary>
+            Get an enumerator of strings asynchronously representing a vertical selection from the spreadsheet.
+            </summary>
+            <param name="column">Index (no 0-based) of the column in the spreadsheet</param>
+            <param name="startingRow">The row from which to start (default is 1).</param>
+            <returns>The enumerator of strings representing the selection.</returns>
+        </member>
+        <member name="M:MyExcel.ExcelReader.GetRowAsync(System.Int32,System.Int32)">
+            <summary>
+            Get an enumerator of strings asynchronously representing an horizontal selection from the spreadsheet.
+            </summary>
+            <param name="row">Index (no 0-based) of the row in the spreadsheet</param>
+            <param name="startingColumn">The column from which to start (default is 1).</param>
+            <returns>The enumerator of strings representing the selection.</returns>
+        </member>
+        <member name="M:MyExcel.ExcelReader.GetRow(System.Int32,System.Int32)">
+            <summary>
+            Get an enumerator of strings representing an horizontal selection from the spreadsheet.
+            </summary>
+            <param name="row">Index (no 0-based) of the row in the spreadsheet</param>
+            <param name="startingColumn">The column from which to start (default is 1).</param>
+            <returns>The enumerator of strings representing the selection.</returns>
+        </member>
+        <member name="T:MyExcel.ExcelWriter">
+            <summary>
+            Excel file writer.
+            </summary>
+        </member>
+        <member name="M:MyExcel.ExcelWriter.#ctor">
+            <summary>
+            Initializes a new instance of the ExcelWriter class.
+            </summary>
+        </member>
+        <member name="P:MyExcel.ExcelWriter.Item(System.Int32,System.Int32)">
+            <summary>
+            Writes a cell value (no 0-based index).
+            </summary>
+            <param name="row">Index of the row in the spreadsheet</param>
+            <param name="column">Index of the column in the apreadsheet</param>
+        </member>
+        <member name="M:MyExcel.ExcelWriter.WriteColumn(System.Int32,System.Collections.Generic.IEnumerable{System.String},System.Int32)">
+            <summary>
+            Writes a vertical selection in the spreadsheet.
+            </summary>
+            <param name="column">The index (no 0-based) of the column.</param>
+            <param name="values">The values to distribute across the selection</param>
+            <param name="startingRow">The index (no 0-based) of the row from which to start.</param>
+        </member>
+        <member name="M:MyExcel.ExcelWriter.WriteRow(System.Int32,System.Collections.Generic.IEnumerable{System.String},System.Int32)">
+            <summary>
+            Writes an horizontal selection in the spreadsheet.
+            </summary>
+            <param name="row">The index (no 0-based) of the row.</param>
+            <param name="values">The values to distribute across the selection</param>
+            <param name="startingColumn">The index (no 0-based) of the column from which to start.</param>
+        </member>
+        <member name="M:MyExcel.ExcelWriter.SaveAs(System.String)">
+            <summary>
+            Save the excel file.
+            </summary>
+            <param name="filename">The name of the file</param>
+        </member>
+        <member name="T:MyExcel.IExcel">
+            <summary>
+            Base interface for Excel reader and writers.
+            </summary>
+        </member>
+        <member name="T:MyExcel.IExcelReader">
+            <summary>
+            Read excel files.
+            </summary>
+        </member>
+        <member name="T:MyExcel.IExcelWriter">
+            <summary>
+            Write Excel files.
+            </summary>
+        </member>
+    </members>
+</doc>

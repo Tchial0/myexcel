@@ -11,6 +11,7 @@
     <PackageTags>excel;write;read;excel-write;excel-read;</PackageTags>
     <AssemblyVersion>1.0.0</AssemblyVersion>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

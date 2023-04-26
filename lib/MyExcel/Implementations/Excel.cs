@@ -17,6 +17,9 @@ namespace MyExcel
 
         }
 
+        /// <summary>
+        /// Releases all the resources used by the excel application.
+        /// </summary>
         public void Dispose()
         {
             if (_app != null)
