@@ -60,13 +60,18 @@ namespace MyExcel
 
         /// <summary>
         /// Save the excel file.
+        /// If another file with the same name exists will be deleted.
         /// </summary>
-        /// <param name="filename">The name of the file</param>
-        public void SaveAs(string filename)
+        /// <param name="file">The full path of the the file including its extension (normally .xlsx).</param>
+        public void SaveAs(string file)
         {
             if (_sheet != null)
             {
-                _sheet.SaveAs(filename);
+                if (System.IO.File.Exists(file))
+                {
+                    System.IO.File.Delete(file);
+                }
+                _sheet.SaveAs(file);
             }
         }
     }
