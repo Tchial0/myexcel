@@ -1,5 +1,4 @@
 ﻿using Microsoft.Office.Interop.Excel;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace MyExcel
