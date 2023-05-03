@@ -3,10 +3,11 @@ Reading and writing Excel files with c# never got that easy.
 
 ### Let's se an example
 
-<pre>
+```c#
  static void Main(string[] args)
         {
             string fileLocation = @"C:\Users\Username\Desktop\MyExcelFile.xlsx";
+
             using (ExcelWriter writer = new ExcelWriter())
             {
                 writer[1, 1] = "First Cell";
@@ -20,4 +21,4 @@ Reading and writing Excel files with c# never got that easy.
   
             }
         }
-</pre>
+```
