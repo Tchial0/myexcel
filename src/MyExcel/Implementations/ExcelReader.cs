@@ -35,6 +35,11 @@ namespace MyExcel
             get { return _fileLocation; }
             set
             {
+                if (System.IO.File.Exists(value) == false)
+                {
+                    throw new System.IO.FileNotFoundException($"Could not locate the '{value}'");
+                }
+
                 if (_app != null)
                 {
                     _app.Workbooks.Close();
@@ -68,7 +73,7 @@ namespace MyExcel
         }
 
         /// <summary>
-        /// Get an enumerator of strings asynchronously representing a vertical selection from the spreadsheet.
+        /// Get an enumerator of strings representing a vertical selection from the spreadsheet.
         /// </summary>
         /// <param name="column">Index (no 0-based) of the column in the spreadsheet</param>
         /// <param name="startingRow">The row from which to start (default is 1).</param>

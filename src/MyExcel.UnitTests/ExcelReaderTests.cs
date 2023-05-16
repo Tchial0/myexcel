@@ -6,7 +6,7 @@ namespace MyExcel.UnitTests
         [Fact]
         public void ReadingWithoutProvidingTheFileLocationThrowsAnException()
         {
-            MyExcel.ExcelReader reader = new MyExcel.ExcelReader();
+            ExcelReader reader = new ExcelReader();
             bool threwException = false;
 
             try
@@ -25,5 +25,28 @@ namespace MyExcel.UnitTests
             Assert.True(threwException);
         }
 
+        [Fact]
+        public void SettingAnInexistentFileThrowsAnException()
+        {
+            ExcelReader reader = new ExcelReader();
+            bool threwException = false;
+
+            try
+            {
+                var tempName = System.IO.Path.GetTempFileName();
+                System.IO.File.Delete(tempName);
+                reader.FileLocation = tempName;
+            }
+            catch (FileNotFoundException)
+            {
+                threwException = true;
+            }
+            finally
+            {
+                reader.Dispose();
+            }
+
+            Assert.True(threwException);
+        }
     }
 }
