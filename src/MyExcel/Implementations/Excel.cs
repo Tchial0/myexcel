@@ -24,10 +24,7 @@ namespace MyExcel
         {
             if (_app != null)
             {
-                if (_app.Workbooks.Count > 0)
-                {
-                    _app.Workbooks.Close();
-                }
+                _app.Workbooks.Close();
                 _app.Quit();
             }
         }

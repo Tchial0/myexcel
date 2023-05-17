@@ -33,9 +33,7 @@ namespace MyExcel.UnitTests
 
             try
             {
-                var tempName = System.IO.Path.GetTempFileName();
-                System.IO.File.Delete(tempName);
-                reader.FileLocation = tempName;
+                reader.FileLocation = GetAnInexistentFileLocation();
             }
             catch (FileNotFoundException)
             {
@@ -47,6 +45,13 @@ namespace MyExcel.UnitTests
             }
 
             Assert.True(threwException);
+        }
+
+        private string GetAnInexistentFileLocation()
+        {
+            var tempName = System.IO.Path.GetTempFileName();
+            System.IO.File.Delete(tempName);
+            return tempName;
         }
     }
 }
