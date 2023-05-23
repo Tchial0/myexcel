@@ -22,7 +22,7 @@ namespace MyExcel
         /// </summary>
         /// <param name="row">Index of the row in the spreadsheet</param>
         /// <param name="column">Index of the column in the apreadsheet</param>
-        public string this[int row, int column]
+        public string this[uint row, uint column]
         {
             set
             {
@@ -36,7 +36,7 @@ namespace MyExcel
         /// <param name="column">The index (no 0-based) of the column.</param>
         /// <param name="values">The values to distribute across the selection</param>
         /// <param name="startingRow">The index (no 0-based) of the row from which to start.</param>
-        public void WriteColumn(int column, IEnumerable<string> values, int startingRow = 1)
+        public void WriteColumn(uint column, IEnumerable<string> values, uint startingRow = 1)
         {
             foreach (var value in values)
             {
@@ -50,7 +50,7 @@ namespace MyExcel
         /// <param name="row">The index (no 0-based) of the row.</param>
         /// <param name="values">The values to distribute across the selection</param>
         /// <param name="startingColumn">The index (no 0-based) of the column from which to start.</param>
-        public void WriteRow(int row, IEnumerable<string> values, int startingColumn = 1)
+        public void WriteRow(uint row, IEnumerable<string> values, uint startingColumn = 1)
         {
             foreach (var value in values)
             {
@@ -62,16 +62,16 @@ namespace MyExcel
         /// Save the excel file.
         /// If another file with the same name exists will be deleted.
         /// </summary>
-        /// <param name="file">The full path of the the file including its extension (normally .xlsx).</param>
-        public void SaveAs(string file)
+        /// <param name="filename">The full path of the the file including its extension (normally .xlsx).</param>
+        public void SaveAs(string filename)
         {
             if (_sheet != null)
             {
-                if (System.IO.File.Exists(file))
+                if (System.IO.File.Exists(filename))
                 {
-                    System.IO.File.Delete(file);
+                    System.IO.File.Delete(filename);
                 }
-                _sheet.SaveAs(file);
+                _sheet.SaveAs(filename);
             }
         }
     }

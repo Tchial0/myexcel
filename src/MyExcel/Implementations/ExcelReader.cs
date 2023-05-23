@@ -17,7 +17,7 @@ namespace MyExcel
         /// <param name="row">Index of the row in the spreadsheet</param>
         /// <param name="column">Index of the column in the apreadsheet</param>
         /// <returns>The value of the cell from the spreadsheet.</returns>
-        public string this[int row, int column]
+        public string this[uint row, uint column]
         {
             get
             {
@@ -57,14 +57,14 @@ namespace MyExcel
         /// <param name="column">Index (no 0-based) of the column in the spreadsheet</param>
         /// <param name="startingRow">The row from which to start (default is 1).</param>
         /// <returns>The enumerator of strings representing the selection.</returns>
-        public async Task<IEnumerable<string>> GetColumnAsync(int column, int startingRow = 1)
+        public async Task<IEnumerable<string>> GetColumnAsync(uint column, uint startingRow = 1)
         {
             ThrowExceptionIfFileLocationNotSet();
 
             return await Task.Run(() =>
             {
                 List<string> values = new List<string>();
-                for (int row = startingRow; this[row, column] != string.Empty; row++)
+                for (ukint row = startingRow; this[row, column] != string.Empty; row++)
                 {
                     values.Add(((dynamic)_sheet.Cells[row, column]).Value.ToString());
                 }
@@ -78,12 +78,12 @@ namespace MyExcel
         /// <param name="column">Index (no 0-based) of the column in the spreadsheet</param>
         /// <param name="startingRow">The row from which to start (default is 1).</param>
         /// <returns>The enumerator of strings representing the selection.</returns>
-        public IEnumerable<string> GetColumn(int column, int startingRow = 1)
+        public IEnumerable<string> GetColumn(uint column, uint startingRow = 1)
         {
             ThrowExceptionIfFileLocationNotSet();
 
             List<string> values = new List<string>();
-            for (int row = startingRow; this[row, column] != string.Empty; row++)
+            for (uint row = startingRow; this[row, column] != string.Empty; row++)
             {
                 values.Add(((dynamic)_sheet.Cells[row, column]).Value.ToString());
             }
@@ -96,14 +96,14 @@ namespace MyExcel
         /// <param name="row">Index (no 0-based) of the row in the spreadsheet</param>
         /// <param name="startingColumn">The column from which to start (default is 1).</param>
         /// <returns>The enumerator of strings representing the selection.</returns>
-        public async Task<IEnumerable<string>> GetRowAsync(int row, int startingColumn = 1)
+        public async Task<IEnumerable<string>> GetRowAsync(uint row, uint startingColumn = 1)
         {
             ThrowExceptionIfFileLocationNotSet();
 
             return await Task.Run(() =>
             {
                 List<string> values = new List<string>();
-                for (int column = startingColumn; this[row, column] != string.Empty; column++)
+                for (uint column = startingColumn; this[row, column] != string.Empty; column++)
                 {
                     values.Add(((dynamic)_sheet.Cells[row, column]).Value.ToString());
                 }
@@ -117,12 +117,12 @@ namespace MyExcel
         /// <param name="row">Index (no 0-based) of the row in the spreadsheet</param>
         /// <param name="startingColumn">The column from which to start (default is 1).</param>
         /// <returns>The enumerator of strings representing the selection.</returns>
-        public IEnumerable<string> GetRow(int row, int startingColumn = 1)
+        public IEnumerable<string> GetRow(uint row, uint startingColumn = 1)
         {
             ThrowExceptionIfFileLocationNotSet();
 
             List<string> values = new List<string>();
-            for (int column = startingColumn; this[row, column] != string.Empty; column++)
+            for (uint column = startingColumn; this[row, column] != string.Empty; column++)
             {
                 values.Add(((dynamic)_sheet.Cells[row, column]).Value.ToString());
             }

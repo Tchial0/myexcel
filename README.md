@@ -13,6 +13,7 @@ Reading and writing Excel files with c# never got that easy.
                 writer[1, 1] = "First Cell";
                 writer.SaveAs(fileLocation);
             }
+
             using(ExcelReader reader = new ExcelReader())
             {
                 reader.FileLocation = fileLocation;
