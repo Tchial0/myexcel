@@ -1,7 +1,25 @@
+using System.Diagnostics;
+
 namespace MyExcel.UnitTests
 {
     public class ExcelReaderTests
     {
+        
+        [Theory]
+        [InlineData(@"C:\Users\HP\source\repos\myexcel\lib\MyExcel.xlsx", "MyExcel")]
+        public void ShouldReadExcelFiles(string excelFileLocation, string firstCellContent)
+        {
+            
+            string actual;
+            string expected = firstCellContent;
+
+            using (ExcelReader reader = new ExcelReader())
+            {
+                reader.FileLocation = excelFileLocation;
+                actual = reader[1, 1];
+            }
+            Assert.Equal(expected, actual);
+        }
 
         [Fact]
         public void ReadingWithoutProvidingTheFileLocationThrowsAnException()

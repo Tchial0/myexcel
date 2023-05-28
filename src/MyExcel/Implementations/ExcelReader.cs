@@ -64,7 +64,7 @@ namespace MyExcel
             return await Task.Run(() =>
             {
                 List<string> values = new List<string>();
-                for (ukint row = startingRow; this[row, column] != string.Empty; row++)
+                for (uint row = startingRow; this[row, column] != string.Empty; row++)
                 {
                     values.Add(((dynamic)_sheet.Cells[row, column]).Value.ToString());
                 }
