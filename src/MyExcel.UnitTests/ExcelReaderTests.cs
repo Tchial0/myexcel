@@ -10,7 +10,7 @@ namespace MyExcel.UnitTests
         }
 
         [Theory]
-        [InlineData(@"C:\Users\HP\source\repos\myexcel\lib\MyExcel.xlsx", "MyExcel")]
+        [InlineData(@"C:\Users\HP\source\repos\myexcel\lib\MyExcel.xlsx", "My Excel")]
         public void ShouldReadExcelFiles(string excelFileLocation, string firstCellContent)
         {
             string actual;

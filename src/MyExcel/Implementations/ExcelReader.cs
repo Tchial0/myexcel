@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 
 namespace MyExcel
@@ -37,17 +38,13 @@ namespace MyExcel
             {
                 if (System.IO.File.Exists(value) == false)
                 {
-                    throw new System.IO.FileNotFoundException($"Could not locate the '{value}'");
-                }
-
-                if (_app != null)
-                {
-                    _app.Workbooks.Close();
+                    throw new System.IO.FileNotFoundException($"Could not locate '{value}'");
                 }
 
                 _fileLocation = value;
-                var wb = _app.Workbooks.Open(_fileLocation);
-                _sheet = (Microsoft.Office.Interop.Excel.Worksheet)wb.Worksheets[1];
+                _workbook = _workbooks.Open(_fileLocation);
+                _sheets = _workbook.Worksheets;
+                _sheet = (Microsoft.Office.Interop.Excel.Worksheet)_sheets[1];
             }
         }
 

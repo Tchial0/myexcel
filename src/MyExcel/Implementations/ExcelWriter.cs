@@ -13,8 +13,9 @@ namespace MyExcel
         /// </summary>
         public ExcelWriter() : base()
         {
-            Workbook wb = _app.Workbooks.Add();
-            _sheet = (Worksheet)wb.Worksheets.Add();
+            _workbook = _workbooks.Add();
+            _sheets = _workbook.Worksheets;
+            _sheet = (Worksheet)_sheets.Add();
         }
 
         /// <summary>
