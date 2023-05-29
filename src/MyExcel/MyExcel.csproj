@@ -9,15 +9,16 @@
     <RepositoryUrl>https://github.com/Tchial0/myexcel</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>excel;write;read;excel-write;excel-read;</PackageTags>
-    <AssemblyVersion>1.1.0</AssemblyVersion>
+    <AssemblyVersion>1.2.0</AssemblyVersion>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
-    <Version>1.1.0</Version>
-    <PackageReleaseNotes>This release now includues:
+    <Version>1.2.0</Version>
+    <PackageReleaseNotes>This release includes:
 
- - Documentation 
- - Support for .net framework and .net</PackageReleaseNotes>
+ - Important updates</PackageReleaseNotes>
     <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <PackageProjectUrl></PackageProjectUrl>
+    <FileVersion>1.2.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
