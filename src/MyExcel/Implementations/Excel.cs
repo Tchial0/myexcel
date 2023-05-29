@@ -21,7 +21,7 @@ namespace MyExcel
         /// Releases all the resources used by the excel application.
         /// </summary>
         public void Dispose()
-        {
+        {         
             if (_app != null)
             {
                 _app.Workbooks.Close();
