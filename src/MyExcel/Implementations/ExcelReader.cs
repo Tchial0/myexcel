@@ -24,7 +24,9 @@ namespace MyExcel
             {
                 ThrowExceptionIfFileLocationNotSet();
 
-                return ((dynamic)_sheet.Cells[row, column]).Value.ToString();
+                var cellValue = ((dynamic)_sheet.Cells[row, column]).Value;
+       
+                return (cellValue == null) ? null : cellValue.ToString();
             }
         }
 

@@ -24,6 +24,17 @@ namespace MyExcel.UnitTests
             Assert.Equal(expected, actual);
         }
 
+        [Theory]
+        [InlineData(@"C:\Users\HP\source\repos\myexcel\lib\MyExcel.xlsx")]
+        public void ReadingInexistentCellShouldReturnNull(string excelFileLocation)
+        {
+            ExcelReader reader = GetExcelReader();
+
+            reader.FileLocation = excelFileLocation;
+
+            Assert.Null(reader[1, 10]);
+        }
+
         [Fact]
         public void ReadingWithoutProvidingTheFileLocationThrowsAnException()
         {
