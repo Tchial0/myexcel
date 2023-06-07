@@ -9,16 +9,17 @@
     <RepositoryUrl>https://github.com/Tchial0/myexcel</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>excel;write;read;excel-write;excel-read;</PackageTags>
-    <AssemblyVersion>1.2.0</AssemblyVersion>
+    <AssemblyVersion>1.2.1</AssemblyVersion>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
-    <Version>1.2.0</Version>
+    <Version>1.2.1</Version>
     <PackageReleaseNotes>This release includes:
 
- - Important updates</PackageReleaseNotes>
+ - Bug fixes</PackageReleaseNotes>
     <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
     <PackageProjectUrl></PackageProjectUrl>
-    <FileVersion>1.2.0</FileVersion>
+    <FileVersion>1.2.1</FileVersion>
+    <IncludeSymbols>False</IncludeSymbols>
   </PropertyGroup>
 
   <ItemGroup>
