@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MyExcel\MyExcel.csproj" />
+    <ProjectReference Include="..\..\src\MyExcel\MyExcel.csproj" />
   </ItemGroup>
 
 </Project>
