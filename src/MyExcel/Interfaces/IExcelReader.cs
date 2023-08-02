@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace MyExcel
@@ -30,7 +31,7 @@ namespace MyExcel
         /// <param name="column">Index (no 0-based) of the column in the spreadsheet</param>
         /// <param name="startingRow">The row from which to start (default is 1).</param>
         /// <returns>The enumerator of strings representing the selection.</returns>
-        Task<IEnumerable<string>> GetColumnAsync(uint column, uint startingRow = 1);
+        Task<IEnumerable<string>> GetColumnAsync(uint column, uint startingRow = 1, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get an enumerator of strings asynchronously representing an horizontal selection from the spreadsheet.
@@ -38,7 +39,7 @@ namespace MyExcel
         /// <param name="row">Index (no 0-based) of the row in the spreadsheet</param>
         /// <param name="startingColumn">The column from which to start (default is 1).</param>
         /// <returns>The enumerator of strings representing the selection.</returns>
-        Task<IEnumerable<string>> GetRowAsync(uint row, uint startingColumn = 1);
+        Task<IEnumerable<string>> GetRowAsync(uint row, uint startingColumn = 1, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get an enumerator of strings representing a vertical selection from the spreadsheet.

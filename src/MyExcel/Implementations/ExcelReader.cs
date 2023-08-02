@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace MyExcel
@@ -56,7 +57,7 @@ namespace MyExcel
         /// <param name="column">Index (no 0-based) of the column in the spreadsheet</param>
         /// <param name="startingRow">The row from which to start (default is 1).</param>
         /// <returns>The enumerator of strings representing the selection.</returns>
-        public async Task<IEnumerable<string>> GetColumnAsync(uint column, uint startingRow = 1)
+        public async Task<IEnumerable<string>> GetColumnAsync(uint column, uint startingRow = 1, CancellationToken cancellationToken = default)
         {
             ThrowExceptionIfFileLocationNotSet();
 
@@ -65,6 +66,7 @@ namespace MyExcel
                 List<string> values = new List<string>();
                 for (uint row = startingRow; this[row, column] != string.Empty; row++)
                 {
+                    cancellationToken.ThrowIfCancellationRequested();
                     values.Add(((dynamic)_sheet.Cells[row, column]).Value.ToString());
                 }
                 return values;
@@ -95,7 +97,7 @@ namespace MyExcel
         /// <param name="row">Index (no 0-based) of the row in the spreadsheet</param>
         /// <param name="startingColumn">The column from which to start (default is 1).</param>
         /// <returns>The enumerator of strings representing the selection.</returns>
-        public async Task<IEnumerable<string>> GetRowAsync(uint row, uint startingColumn = 1)
+        public async Task<IEnumerable<string>> GetRowAsync(uint row, uint startingColumn = 1, CancellationToken cancellationToken = default )
         {
             ThrowExceptionIfFileLocationNotSet();
 
