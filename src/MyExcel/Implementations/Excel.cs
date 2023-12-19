@@ -8,11 +8,13 @@ namespace MyExcel
     /// </summary>    
     public abstract class Excel : IExcel
     {
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         protected Application _app;
         protected Worksheet _sheet;
         protected Workbooks _workbooks;
         protected Workbook _workbook;
         protected Sheets _sheets;
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 
         /// <summary>
         /// Initializes a new instance of a Excel file reader or writer.

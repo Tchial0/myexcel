@@ -2,11 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-
     <IsPackable>false</IsPackable>
-
     <IsPublishable>True</IsPublishable>
   </PropertyGroup>
 
@@ -25,6 +22,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\MyExcel\MyExcel.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="MyExcel.xlsx" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 
 </Project>

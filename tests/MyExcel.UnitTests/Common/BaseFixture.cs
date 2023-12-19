@@ -1,15 +1,18 @@
-﻿namespace MyExcel.UnitTests
+﻿using System;
+using System.Collections.Generic;
+
+namespace MyExcel.UnitTests
 {
-    public class Fixture : IDisposable
+    public abstract class BaseFixture : IDisposable
     {
         private readonly List<IDisposable> _elements;
 
-        public Fixture()
+        public BaseFixture()
         {
            _elements = new List<IDisposable>();
         }
 
-        public IDisposable AddToDispose(IDisposable element)
+        protected IDisposable AddToDispose(IDisposable element)
         {
             _elements.Add(element);
             return element;
