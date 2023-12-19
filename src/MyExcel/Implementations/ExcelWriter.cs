@@ -46,7 +46,7 @@ namespace MyExcel
         }
 
         /// <summary>
-        /// Writes an horizontal selection in the spreadsheet.
+        /// Writes a horizontal selection in the spreadsheet.
         /// </summary>
         /// <param name="row">The index (no 0-based) of the row.</param>
         /// <param name="values">The values to distribute across the selection</param>
@@ -60,7 +60,7 @@ namespace MyExcel
         }
 
         /// <summary>
-        /// Save the excel file.
+        /// Saves the excel file.
         /// If another file with the same name exists will be deleted.
         /// </summary>
         /// <param name="filename">The full path of the the file including its extension (normally .xlsx).</param>

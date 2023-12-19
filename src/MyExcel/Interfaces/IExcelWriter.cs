@@ -3,7 +3,7 @@
 namespace MyExcel
 {
     /// <summary>
-    /// Write Excel files.
+    /// Excel file writer.
     /// </summary>
     public interface IExcelWriter : IExcel
     {
@@ -13,7 +13,6 @@ namespace MyExcel
         /// <param name="row">Index of the row in the spreadsheet</param>
         /// <param name="column">Index of the column in the apreadsheet</param>
         string this[uint row, uint column] { set; }
-
 
         /// <summary>
         /// Writes a vertical selection in the spreadsheet.
@@ -31,10 +30,9 @@ namespace MyExcel
         /// <param name="startingColumn">The index (no 0-based) of the column from which to start.</param>
         void WriteRow(uint row, IEnumerable<string> values, uint startingColumn = 1);
 
-
         /// <summary>
-        /// Save the excel file.
-        /// If another file with the same name exists will be deleted.
+        /// Saves the excel file.
+        /// If another file with the same name exists it will be deleted.
         /// </summary>
         /// <param name="filename">The full path of the the file including its extension (normally .xlsx).</param>
         void SaveAs(string filename);

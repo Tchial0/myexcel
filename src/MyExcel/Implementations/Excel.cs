@@ -3,7 +3,6 @@ using System.Runtime.InteropServices;
 
 namespace MyExcel
 {
-
     /// <summary>
     /// The base class for excel readers and writers.
     /// </summary>    
@@ -15,6 +14,9 @@ namespace MyExcel
         protected Workbook _workbook;
         protected Sheets _sheets;
 
+        /// <summary>
+        /// Initializes a new instance of a Excel file reader or writer.
+        /// </summary>    
         protected Excel()
         {
             _app = new Application();
@@ -35,7 +37,7 @@ namespace MyExcel
                     _sheet = null;
                 }
 
-                if(_sheets  != null)
+                if (_sheets != null)
                 {
                     Marshal.FinalReleaseComObject(_sheets);
                     _sheets = null;

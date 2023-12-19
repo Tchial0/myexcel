@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace MyExcel
 {
@@ -10,11 +8,10 @@ namespace MyExcel
     public class FileLocationNotSetException : Exception
     {
         /// <summary>
-        /// 
+        /// Initializes an instance of the FileLocationNotSetException class
         /// </summary>
         public FileLocationNotSetException() : base("The location of the Excel file was not set.")
         {
-            
         }
     }
 }
