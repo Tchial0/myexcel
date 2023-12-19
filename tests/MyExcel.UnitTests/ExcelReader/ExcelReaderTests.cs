@@ -11,36 +11,32 @@ namespace MyExcel.UnitTests
             _fixture = fixture;
         }
 
-        [Theory]
-        [InlineData("My Excel")]
-        public void ShouldReadExcelFiles(string firstCellContent)
+        [Fact]
+        public void ExcelReader_WhenReadingNonEmptyCell_ShouldReturnTheRealValue()
         {
-            string actual;
-            string expected = firstCellContent;
-
             ExcelReader reader = _fixture.GetAssginedExcelReader();
-
-            actual = reader[1, 1];
+            string expected = ExcelReaderTestsConstants.LocalExcelFirstCellContent;
+            string actual = reader[1, 1];
 
             Assert.Equal(expected, actual);
         }
 
         [Fact]
-        public void ReadingAnEmptyCellShouldReturnNull()
+        public void ExcelReader_WhenReadingAnEmptyCell_ShouldReturnNull()
         {
             ExcelReader reader = _fixture.GetAssginedExcelReader();
             Assert.Null(reader[1, 10]);
         }
 
         [Fact]
-        public void ReadingWithoutProvidingTheFileLocationThrowsAnException()
+        public void ExcelReader_WhenReadingWithoutProvidingTheFileLocation_ShouldThrowAnException()
         {
             ExcelReader reader = _fixture.GetUnassignedExcelReader();
             Assert.Throws<FileLocationNotSetException>(() => reader[1, 1]);
         }
 
         [Fact]
-        public void SettingAnInexistentFileLocationThrowsException()
+        public void ExcelReader_WhenSettingAnInexistentFileLocation_ShouldThrowAnException()
         {
             ExcelReader reader = _fixture.GetUnassignedExcelReader();
 
