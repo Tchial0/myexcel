@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>12</LangVersion>
     <Title>MyExcel</Title>
     <Authors>tchialo</Authors>
     <Company />
@@ -13,11 +14,8 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <Version>1.2.2</Version>
-    <PackageReleaseNotes>This release includes:
-
- - CancellationToken support</PackageReleaseNotes>
     <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
-    <PackageProjectUrl></PackageProjectUrl>
+    <PackageProjectUrl>https://www.nuget.org/packages/MyExcel</PackageProjectUrl>
     <FileVersion>1.2.2</FileVersion>
     <IncludeSymbols>False</IncludeSymbols>
     <UserSecretsId>800c78b2-5f91-4499-8632-cc649761db56</UserSecretsId>
