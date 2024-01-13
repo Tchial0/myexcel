@@ -5,7 +5,6 @@
     <LangVersion>12</LangVersion>
     <Title>MyExcel</Title>
     <Authors>tchialo</Authors>
-    <Company />
     <Description>Read and write Excel files very simply.</Description>
     <RepositoryUrl>https://github.com/Tchial0/myexcel</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
