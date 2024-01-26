@@ -41,8 +41,7 @@ namespace MyExcel.UnitTests
             ExcelReader reader = _fixture.GetUnassignedExcelReader();
 
             Assert.Throws<FileNotFoundException>(
-                () => reader.FileLocation = _fixture.GetAnInexistentFileLocation());
+                () => reader.FileLocation = BaseFixture.GetAnInexistentFileLocation());
         }
-
     }
 }

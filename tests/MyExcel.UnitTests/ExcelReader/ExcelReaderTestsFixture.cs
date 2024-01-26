@@ -21,13 +21,5 @@ namespace MyExcel.UnitTests
                 
             return excelReader;
         }
-
-        public string GetAnInexistentFileLocation()
-        {
-            var tempName = Path.GetTempFileName();
-            File.Delete(tempName);
-            return tempName;
-        }
-
     }
 }

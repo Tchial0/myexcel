@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace MyExcel.UnitTests
 {
@@ -9,7 +10,7 @@ namespace MyExcel.UnitTests
 
         public BaseFixture()
         {
-           _elements = new List<IDisposable>();
+            _elements = new List<IDisposable>();
         }
 
         protected IDisposable AddToDispose(IDisposable element)
@@ -20,10 +21,17 @@ namespace MyExcel.UnitTests
 
         public void Dispose()
         {
-           foreach(var element in _elements)
+            foreach (var element in _elements)
             {
                 element.Dispose();
             }
+        }
+
+        public static string GetAnInexistentFileLocation()
+        {
+            var tempName = Path.GetTempFileName();
+            File.Delete(tempName);
+            return tempName;
         }
     }
 }
