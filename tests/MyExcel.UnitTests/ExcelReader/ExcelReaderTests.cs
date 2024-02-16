@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace MyExcel.UnitTests
 {
@@ -42,6 +44,26 @@ namespace MyExcel.UnitTests
 
             Assert.Throws<FileNotFoundException>(
                 () => reader.FileLocation = BaseFixture.GetAnInexistentFileLocation());
+        }
+
+        [Fact]
+        public void ExcelReader_WhenReadingARow_ShouldReturnTheExpectedValues()
+        {
+            ExcelReader reader = _fixture.GetAssginedExcelReader();
+            IEnumerable<string> expected = ExcelReaderTestsConstants.LocalExcelFirstRowContent;
+            IEnumerable<string> actual = reader.GetRow(1);
+
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void ExcelReader_WhenReadingAColumn_ShouldReturnTheExpectedValues()
+        {
+            ExcelReader reader = _fixture.GetAssginedExcelReader();
+            IEnumerable<string> expected = ExcelReaderTestsConstants.LocalExcelFirstColumnContent;
+            IEnumerable<string> actual = reader.GetColumn(1);
+
+            Assert.Equal(expected, actual);
         }
     }
 }

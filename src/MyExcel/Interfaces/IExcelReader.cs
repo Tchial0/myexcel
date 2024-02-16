@@ -7,7 +7,7 @@ namespace MyExcel
     /// <summary>
     /// Excel file reader.
     /// </summary>
-    public interface IExcelReader
+    public interface IExcelReader : IExcel
     {
         /// <summary>
         /// Gets/sets the location of the excel file to be read.

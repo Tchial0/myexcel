@@ -65,7 +65,7 @@ namespace MyExcel
             return await Task.Run(() =>
             {
                 List<string> values = new List<string>();
-                for (uint row = startingRow; this[row, column] != string.Empty; row++)
+                for (uint row = startingRow; this[row, column] is not null; row++)
                 {
                     cancellationToken.ThrowIfCancellationRequested();
                     values.Add(((dynamic)_sheet.Cells[row, column]).Value.ToString());
@@ -85,7 +85,7 @@ namespace MyExcel
             ThrowExceptionIfFileLocationNotSet();
 
             List<string> values = new List<string>();
-            for (uint row = startingRow; this[row, column] != string.Empty; row++)
+            for (uint row = startingRow; this[row, column] is not null; row++)
             {
                 values.Add(((dynamic)_sheet.Cells[row, column]).Value.ToString());
             }
@@ -106,7 +106,7 @@ namespace MyExcel
             return await Task.Run(() =>
             {
                 List<string> values = new List<string>();
-                for (uint column = startingColumn; this[row, column] != string.Empty; column++)
+                for (uint column = startingColumn; this[row, column] is not null; column++)
                 {
                     values.Add(((dynamic)_sheet.Cells[row, column]).Value.ToString());
                 }
@@ -125,7 +125,7 @@ namespace MyExcel
             ThrowExceptionIfFileLocationNotSet();
 
             List<string> values = new List<string>();
-            for (uint column = startingColumn; this[row, column] != string.Empty; column++)
+            for (uint column = startingColumn; this[row, column] is not null; column++)
             {
                 values.Add(((dynamic)_sheet.Cells[row, column]).Value.ToString());
             }

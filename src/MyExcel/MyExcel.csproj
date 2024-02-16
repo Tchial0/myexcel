@@ -9,13 +9,13 @@
     <RepositoryUrl>https://github.com/Tchial0/myexcel</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>excel;write;read;excel-write;excel-read;</PackageTags>
-    <AssemblyVersion>1.2.2</AssemblyVersion>
+    <AssemblyVersion>1.2.3</AssemblyVersion>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
-    <Version>1.2.2</Version>
+    <Version>1.2.3</Version>
     <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
     <PackageProjectUrl>https://www.nuget.org/packages/MyExcel</PackageProjectUrl>
-    <FileVersion>1.2.2</FileVersion>
+    <FileVersion>1.2.3</FileVersion>
     <IncludeSymbols>False</IncludeSymbols>
     <UserSecretsId>800c78b2-5f91-4499-8632-cc649761db56</UserSecretsId>
   </PropertyGroup>

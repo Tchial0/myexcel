@@ -1,6 +1,6 @@
 # MyExcel
-[![NuGet](https://img.shields.io/badge/downloads-783-green)](https://www.nuget.org/packages/myexcel) 
-[![NuGet](https://img.shields.io/badge/nuget-v1.2.2-blue)](https://www.nuget.org/packages/myexcel)
+[![NuGet](https://img.shields.io/badge/downloads-793-green)](https://www.nuget.org/packages/myexcel) 
+[![NuGet](https://img.shields.io/badge/nuget-v1.2.3-blue)](https://www.nuget.org/packages/myexcel)
 
 Reading and writing Excel files with c# never got that easy.
 
@@ -16,24 +16,24 @@ Or via the .NET Core command line interface:
 
 Either commands, from Package Manager Console or .NET Core CLI, will download and install MyExcel and all required dependencies.
 
-### Example
+### How to use MyExcel? Easy.
 
+#### Writing a file
 ```c#
- static void Main(string[] args)
-        {
-            string fileLocation = @"C:\Users\Username\Desktop\MyExcelFile.xlsx";
+string fileLocation = @"C:\Users\Username\Desktop\MyExcelFile.xlsx";
 
-            using (ExcelWriter writer = new ExcelWriter())
-            {
-                writer[1, 1] = "First Cell";
-                writer.SaveAs(fileLocation);
-            }
+using (ExcelWriter writer = new ExcelWriter())
+{
+    writer[1, 1] = "First Cell";
+    writer.SaveAs(fileLocation);
+}
+```
 
-            using(ExcelReader reader = new ExcelReader())
-            {
-                reader.FileLocation = fileLocation;
-                Console.WriteLine(reader[1,1]);
-            }
-        }
-        //Output: First Cell
+#### Reading a file
+```c#
+using (ExcelReader reader = new ExcelReader())
+{
+    reader.FileLocation = fileLocation;
+    Console.WriteLine(reader[1,1]);
+}
 ```
